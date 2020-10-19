@@ -102,6 +102,120 @@ int main(int argc, const char* argv[]) {
 		file.close();
 	}
 
+	if (InputFileOperation == 2) // Добавление в файл
+	{
+		file.open(kurs, fstream::in);
+		if (!file.is_open()) cout << "Ошибка открытия файла" << endl;
+		int n = 0;
+		while (true)
+		{
+			SetConsoleCP(866);
+			file >> FileStr[n];
+			if (file.eof()) break;
+			cout << FileStr[n] << endl;
+			SetConsoleCP(1251);
+			n++;
+		}
+		file.close();
+		file.open(kurs, fstream::app);
+		if (!file.is_open()) cout << "Ошибка открытия файла" << endl;
+		cout << "Сколько спортсменов Вы хотите добавить ?" << endl;
+		int a;
+		cin >> a;
+		for (int i = 0; i < a; i++)
+		{
+			SetConsoleCP(1251);
+			FileStr[i].InputHuman();
+			file << FileStr[i] << "\n";
+			SetConsoleCP(866);
+		}
+		file.close();
+	}
+	if (InputFileOperation == 3) // Замена данных
+	{
+		file.open(kurs, fstream::in);
+		if (!file.is_open()) cout << "Ошибка открытия файла" << endl;
+		int n = 0;
+		while (true)
+		{
+			SetConsoleCP(866);
+			file >> FileStr[n];
+			if (file.eof()) break;
+			cout << FileStr[n] << endl;
+			SetConsoleCP(1251);
+			n++;
+		}
+		file.close();
+		cout << "Сколько спортсменов Вы хотите заменить ?" << endl;
+		int b;
+		cin >> b;
+		for (int i = 0; i < b; i++)
+		{
+			SetConsoleCP(866);
+			cout << "Введите номер заменяемого спортсмена" << endl;
+			int a;
+			cin >> a;
+			FileStr[a - 1].InputHuman();
+			SetConsoleCP(1251);
+		}
+		file.close();
+		ofstream file;
+		file.open(kurs);
+		for (int i = 0; i < n; i++)
+		{
+			file << FileStr[i] << "\n";
+		}
+		file.close();
+	}
+	if (InputFileOperation == 4) // Поиск в файле
+	{
+		file.open(kurs, fstream::in);
+		if (!file.is_open()) cout << "Ошибка открытия файла" << endl;
+		int n = 0;
+		while (true)
+		{
+			SetConsoleCP(866);
+			file >> FileStr[n];
+			if (file.eof()) break;
+			SetConsoleCP(1251);
+			n++;
+		}
+		file.close();
+		cout << "1 - Поиск по номеру спортсмена" << "\n2 - Поиск по фамилии спортсмена" << "\n3 - Поиск по очкам спортсмена" << endl;
+		int SearchFile;
+		cin >> SearchFile;
+		if (SearchFile == 1) // Поиск по номеру
+		{
+			cout << "Введите номер спортсмена" << endl;
+			int a;
+			cin >> a;
+			FileStr[a - 1].SearchHumanNumber(a);
+		}
+		if (SearchFile == 2) // Поиск по фамилии
+		{
+			cout << "Введите фамилию спортсмена" << endl;
+			string str;
+			cin >> str;
+			for (int i = 0; i < n; i++)
+			{
+				FileStr[i].SearchHumanLastName(str);
+			}
+		}
+		if (SearchFile == 3) // Поиск по очкам
+		{
+			cout << "Введите количество очков" << endl;
+			int a;
+			cin >> a;
+			for (int i = 0; i < n; i++)
+			{
+				FileStr[i].SearchHumanScore(a);
+			}
+		}
+	}
+	if (InputFileOperation == 5) // Выход
+	{
+	}
+
 	system("pause");
 	return 0;
 }
