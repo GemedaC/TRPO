@@ -77,6 +77,31 @@ istream& operator>>(istream& is, Sport& sport) {
 int main(int argc, const char* argv[]) {
 	setlocale(LC_ALL, "ru");
 
+	string kurs = "Kurs.txt";
+	Sport FileStr[20];
+
+	fstream file;
+	cout << "1 - Просмотр данных" << "\n2 - Добавить данные" << "\n3 - Заменить данные " << "\n4 - Поиск" << "\n5 - Выйти из программы" << endl;
+	int InputFileOperation;
+	cin >> InputFileOperation;
+	if (InputFileOperation == 1) // Чтение файла
+	{
+		cout << "Список данных: " << endl;
+		file.open(kurs, fstream::in);
+		if (!file.is_open()) cout << "Ошибка открытия файла" << endl;
+		int n = 0;
+		while (true)
+		{
+			SetConsoleCP(866);
+			file >> FileStr[n];
+			if (file.eof()) break;
+			cout << FileStr[n] << endl;
+			SetConsoleCP(1251);
+			n++;
+		}
+		file.close();
+	}
+
 	system("pause");
 	return 0;
 }
