@@ -1,3 +1,7 @@
-language: cpp
 os: windows
-compiler: gcc
+language: cpp
+script:
+- git ls-files src/ | xargs clang-format && git diff —exit-code
+- make
+compaler:
+- gcc
