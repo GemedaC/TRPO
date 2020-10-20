@@ -2,3 +2,5 @@ os: windows
 language: cpp
 compaler:
 - gcc
+
+./configure && make && make test
