@@ -1,5 +1,6 @@
 os: windows
 language: cpp
-compaler: - g++
+compaler: 
+- g++
 
 
