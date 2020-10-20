@@ -1,7 +1,6 @@
 os: windows
 language: cpp
-script:
-- git ls-files src/ | xargs clang-format && git diff —exit-code
-- make
 compaler:
 - gcc
+
+
