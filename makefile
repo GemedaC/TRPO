@@ -1,3 +1,3 @@
 all:
-    gcc -o test -Wall -Werror test.cpp
+    gcc -o main -Wall -Werror main.cpp
 
