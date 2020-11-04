@@ -1,19 +1,14 @@
 
-
 CC=g++
 
-CFLAGS=-c -Wall
+CFLAGS=-std-c++11
 
 all: hello
 
 hello: main.o test.o
-	$(CC) main.o hello.o -o hello
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) main.cpp
+main.o:
+	$(CC) $(CFLAGS) main.cpp -o hello
 
-hello.o: test.cpp
-	$(CC) $(CFLAGS) test.cpp
-
-clean:
-	rm -rf *.o hello
+test.o:
+	$(CC) $(CFLAGS) test.cpp -o test
