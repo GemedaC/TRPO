@@ -1,0 +1,7 @@
+os: windows
+language: cpp
+compaler: 
+- g++
+script:
+  - make
+
