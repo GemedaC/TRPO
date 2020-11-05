@@ -3,7 +3,7 @@ all: hello
 hello: main.o
 
 main.o:
-	g++ main.cpp -o main
+	gсс main.cpp -o main
 	
 run:
 	main
