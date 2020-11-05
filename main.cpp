@@ -1,11 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-
-void Hello()
-{
-	std::cout << "Hello world" << std::endl;
-}
+#include "test.h"
 
 int main(int argc, char* argv[]) {
 	
