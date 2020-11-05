@@ -1,6 +1,5 @@
 language: cpp
-compaler: 
-- g++
-script:
-  - make
+compaler: g++
+script: 
+- make
 
